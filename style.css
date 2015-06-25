@@ -1,0 +1,222 @@
+<style>
+			html { overflow-x: hidden; }
+			html { overflow-y: hidden; margin: 0;}
+			body { margin: 0; /*cursor: none;*/	}
+			
+			.boundary {
+				width: 800px;
+				height: 600px;
+				overflow-x:hidden;
+				background-image: url("prototyp_footage/testfootage/set_bg.png");
+				stroke: red;
+				stroke-width: 5px;
+			}
+
+			.slider {
+				position: absolute;
+				width: 3200px;
+				height: 600px;
+				transition: transform .5s;
+				float: left;
+			}
+
+			.getraenk {
+				width: 800px;
+				height: 600px;
+				float: left;
+				position: relative;
+				opacity: 0.3;
+				transition: opacity .5s;
+				z-index: 3;
+			}
+			
+			.getraenk.active {
+				opacity: 1;
+			}
+				
+			h1 {
+				text-align: center;
+				color: #FFF;
+				font-size: 55px;
+				font-family: 'Source Sans Pro', sans-serif;
+				font-weight: 300;
+				position: relative ;
+				z-index: 3;
+				position: absolute;
+				width: 100%;
+			}
+
+			.settings {
+				position: absolute;
+				display: inline;
+				z-index: 999;
+				margin-top:-90px;
+			}
+			
+			.dots {
+				position: relative;
+				display: inline;
+				text-align: center;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				color: white;
+			}
+			
+			li{
+			  display: inline;
+			}
+			
+/*--------------------settingPanel--------------------*/			
+
+			.groesse {
+				padding-left: 35px;
+				padding-right: 20px;
+			}
+			
+			.intensitaet {
+				padding-left: 15px;
+				padding-right: 20px;
+			}
+			
+			.milch {
+				padding-left: 30px;
+				padding-right: 20px;
+			}
+			
+			.milchschaum {
+				padding-left: 0px;
+				padding-right: 20px;
+			}
+			
+/*
+			.svg-list li {
+			  float: left;
+			  width: 100px;
+			  height: 100px;
+			  margin-left: 170px;
+			  margin-top: -16px;
+			  z-index: 2000;
+			  visibility: visible;
+			}
+*/
+
+/*
+			.svg {
+				padding-left: 20px;
+				padding-right: 20px;
+			}			
+			.svg2 {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			
+*/
+			
+/*
+			.text {
+			  font-family: 'Source Sans Pro', sans-serif;
+			  font-size: 22px;
+			  font-weight: 300;
+			  color: white;
+			  margin-left: 50px;
+			  margin-top: -68px;
+			  position: absolute;
+			  float: left;
+			  width: 700px;
+			}
+*/
+			.screen2 {
+				position: absolute; 
+				height:600px; 
+				width:800px; 
+				top:0px;
+				visibility: hidden;
+			}
+			
+			.settings {
+				position: absolute;
+				left: 0px;
+				top: 620px;
+				width: 800px;
+				height: 100px;
+			}
+			
+			.setting-item {
+				font-family: 'Source Sans Pro' sans-serif;
+				font-weight: 400;
+				font-size: 22px;
+				color: white;
+				float: left;
+				width: 25%;
+				height: 80px;
+				
+				opacity: .3;
+				transition: opacity .5s;
+			}
+			
+			.setting-item.active	{
+				opacity: 1;
+			}
+			
+			.setting-item .donut {
+			  float: left;
+			  margin-top: -13px;
+			  margin-left: -20px;
+			  width: 20px;
+			}
+			
+			.setting-item .zahl {
+				float: left;
+				margin-top: 35px;
+				margin-left: 25px;
+			}
+			
+			.setting-item .svg {
+				position: absolute;
+				width: 75px;
+				height: 80px;
+				margin-left: -20px;
+			}
+
+			.setting-item .svg2 {
+				position: absolute;
+				width: 75px;
+				height: 80px;
+				margin-left: -20px;
+			}			
+
+			.setting-item .svg3 {
+				position: absolute;
+				width: 75px;
+				height: 80px;
+				margin-left: -20px;
+			}
+			
+			.setting-item .svg4 {
+				position: absolute;
+				width: 75px;
+				height: 80px;
+				margin-left: -20px;
+			}
+									
+			.setting-item p {
+				float:left;
+			}
+			
+			.clearfix:before,
+			.clearfix:after {
+			    content:"";
+			    display:table;
+			}
+			.clearfix:after {
+			    clear:both;
+			}
+			.clearfix {
+			    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+			}
+			
+/*--------------------settingPanel--------------------*/				
+						
+		</style>
+
