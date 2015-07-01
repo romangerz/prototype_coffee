@@ -49,12 +49,19 @@
 			var oldselection = 0;
 			var initMouseY = 0;
 			
+			
+			$("body").keydown(function(event){
+				console.log(event)
+			})
+			
+			
+			
 			$(".screen2").mousemove(function(e) {
-				var mousePos = e.clientY;
+				var mousePos = e.clientX;
 				
 				
 				if (mode == "selecting")	{
-					var step = 600/4;
+					var step = 800/4;
 					var currentStep = Math.floor(mousePos/step) + 0.999;
 					var currentSelection = Math.ceil(currentStep);
 					
@@ -80,7 +87,7 @@
 						if (selection == 1)	{
 							_size = (mousePos - initMouseY)/280
 							
-							drawArc(Math.ceil(_size)/3);	
+							drawArc(Math.ceil(_size)/3);
 							$(".setting1 .zahl").text(Math.ceil(_size));
 							
 						} else if (selection == 2)	{
@@ -169,6 +176,11 @@
 
 //––––––––––––––––––––––––svg––––––––––––––––––––––––
 			function drawArc(percent) {
+
+				if(percent >= 1.0){
+					percent = 0.9999
+				}
+				
 			    var endpoint = percent*360;
 			 		if(currentValue1 != endpoint){
 				 		// video
@@ -210,30 +222,37 @@
 //––––––––––––––––––––––––svg2––––––––––––––––––––––––
 
 			function drawArc2(percent) {
+				
+				if(percent >= 1.0){
+					percent = 0.9999
+				}
+				
 			    var endpoint = percent*360;
 			    
-			    Snap.animate(currentValue2, endpoint, function (val) {
-			        arc2.remove();
-			
-			        var d = val,
-			            dr = d-90;
-			            radians = Math.PI*(dr)/180,
-			            endx = centre + radius*Math.cos(radians),
-			            endy = centre + radius * Math.sin(radians),
-			            largeArc = d>180 ? 1 : 0;  
-			            path = "M"+centre+","+startY+" A"+radius+","+radius+" 0 "+largeArc+",1 "+endx+","+endy;
-			  
-			        arc2 = s2.path(path);
-			        
-			        arc2.attr({
-			          stroke: '#ffffff',
-			          fill: 'none',
-			          strokeWidth: 3
-			        });
-			        
-			        currentValue2 = endpoint
-			
-			    }, 300, mina.easeinout);  
+			    if(currentValue2 != endpoint){
+				    Snap.animate(currentValue2, endpoint, function (val) {
+				        arc2.remove();
+				
+				        var d = val,
+				            dr = d-90;
+				            radians = Math.PI*(dr)/180,
+				            endx = centre + radius*Math.cos(radians),
+				            endy = centre + radius * Math.sin(radians),
+				            largeArc = d>180 ? 1 : 0;  
+				            path = "M"+centre+","+startY+" A"+radius+","+radius+" 0 "+largeArc+",1 "+endx+","+endy;
+				  
+				        arc2 = s2.path(path);
+				        
+				        arc2.attr({
+				          stroke: '#ffffff',
+				          fill: 'none',
+				          strokeWidth: 3
+				        });
+				        
+				        currentValue2 = endpoint
+				
+				    }, 300, mina.easeinout);  
+				 }
 			}
 			
 			var canvasSize = 50,
@@ -249,32 +268,38 @@
 //––––––––––––––––––––––––svg3––––––––––––––––––––––––    
 
 			function drawArc3(percent) {
+			
+				if(percent >= 1.0){
+					percent = 0.9999
+				}			
+			
 			    var endpoint = percent*360;
 			    
+			   if(currentValue3 != endpoint){ 
 			    Snap.animate(currentValue3, endpoint, function (val) {
 			        arc3.remove();
 			
-			        var d = val,
-			            dr = d-90;
-			            radians = Math.PI*(dr)/180,
-			            endx = centre + radius*Math.cos(radians),
-			            endy = centre + radius * Math.sin(radians),
-			            largeArc = d>180 ? 1 : 0;  
-			            path = "M"+centre+","+startY+" A"+radius+","+radius+" 0 "+largeArc+",1 "+endx+","+endy;
-			  
-			        arc3 = s3.path(path);
-			        
-			        arc3.attr({
-			          stroke: '#ffffff',
-			          fill: 'none',
-			          strokeWidth: 3
-			        });
-			        
-			        currentValue3 = endpoint
-			
-			    }, 300, mina.easeinout);  
+				        var d = val,
+				            dr = d-90;
+				            radians = Math.PI*(dr)/180,
+				            endx = centre + radius*Math.cos(radians),
+				            endy = centre + radius * Math.sin(radians),
+				            largeArc = d>180 ? 1 : 0;  
+				            path = "M"+centre+","+startY+" A"+radius+","+radius+" 0 "+largeArc+",1 "+endx+","+endy;
+				  
+				        arc3 = s3.path(path);
+				        
+				        arc3.attr({
+				          stroke: '#ffffff',
+				          fill: 'none',
+				          strokeWidth: 3
+				        });
+				        
+				        currentValue3 = endpoint
+				
+				    }, 300, mina.easeinout);  
+				}
 			}
-			
 			var canvasSize = 50,
 				centre = 100/2,
 			    radius = 50*.8/2,
@@ -288,32 +313,38 @@
 //––––––––––––––––––––––––svg4––––––––––––––––––––––––    
 
 			function drawArc4(percent) {
+			
+				if(percent >= 1.0){
+					percent = 0.9999
+				}			
+			
 			    var endpoint = percent*360;
 			    
-			    Snap.animate(currentValue4, endpoint, function (val) {
-			        arc4.remove();
-			
-			        var d = val,
-			            dr = d-90;
-			            radians = Math.PI*(dr)/180,
-			            endx = centre + radius*Math.cos(radians),
-			            endy = centre + radius * Math.sin(radians),
-			            largeArc = d>180 ? 1 : 0;  
-			            path = "M"+centre+","+startY+" A"+radius+","+radius+" 0 "+largeArc+",1 "+endx+","+endy;
-			  
-			        arc4 = s4.path(path);
-			        
-			        arc4.attr({
-			          stroke: '#ffffff',
-			          fill: 'none',
-			          strokeWidth: 3
-			        });
-			        
-			        currentValue4 = endpoint
-			
-			    }, 300, mina.easeinout);  
+			    if(currentValue4 != endpoint){
+					    Snap.animate(currentValue4, endpoint, function (val) {
+					        arc4.remove();
+					
+					        var d = val,
+					            dr = d-90;
+					            radians = Math.PI*(dr)/180,
+					            endx = centre + radius*Math.cos(radians),
+					            endy = centre + radius * Math.sin(radians),
+					            largeArc = d>180 ? 1 : 0;  
+					            path = "M"+centre+","+startY+" A"+radius+","+radius+" 0 "+largeArc+",1 "+endx+","+endy;
+					  
+				        arc4 = s4.path(path);
+				        
+				        arc4.attr({
+				          stroke: '#ffffff',
+				          fill: 'none',
+				          strokeWidth: 3
+				        });
+				        
+				        currentValue4 = endpoint
+				
+				    }, 300, mina.easeinout);  
+				}
 			}
-			
 			var canvasSize = 50,
 				centre = 100/2,
 			    radius = 50*.8/2,
